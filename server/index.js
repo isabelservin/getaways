@@ -6,8 +6,8 @@ import cors from "cors"
 const app = express()
 
 //middleware
-app.use(express.json())
-app.use(express.urlencoded())
+app.use(express.json({ extended: true }))
+app.use(express.urlencoded({ extended: true }))
 
 app.use(cors())
 
