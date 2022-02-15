@@ -12,7 +12,7 @@ class UserForm extends Component {
   handleSubmit(event) {
     const { email, name, phoneNo } = this.state;
     event.preventDefault();
-    alert(`
+    console.log(`
       ____Your Details____\n
       Email : ${email}
       Name : ${name}
