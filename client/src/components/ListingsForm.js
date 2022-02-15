@@ -82,12 +82,13 @@ class ListingsForm extends Component {
         </div>
         <div>
           <label htmlFor="description">Description</label>
-          <input
-            type="textarea"
+          <textarea
             name="description"
             placeholder="description"
             value={this.state.description}
             onChange={this.handleChange}
+            rows="4"
+            cols="50"
           />
         </div>
         <div>
