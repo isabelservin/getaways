@@ -1,22 +1,36 @@
 import React, { Component } from "react";
 
-class Form extends Component {
+const options = [
+  { label: "House", value: "house" },
+  { label: "Cabin", value: "cabin" },
+  { label: "Condo", value: "condo" },
+];
+
+class ListingsForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { email: "", name: "", phoneNo: "" };
+    this.state = {
+      address: "",
+      price: "",
+      img: "",
+      description: "",
+      propertyType: "",
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // Form submitting logic, prevent default page refresh
   handleSubmit(event) {
-    const { email, name, phoneNo } = this.state;
+    const { address, price, img, description, propertyType } = this.state;
     event.preventDefault();
     console.log(`
       ____Your Details____\n
-      Email : ${email}
-      Name : ${name}
-      Phone No : ${phoneNo}
+      address: ${address},
+      price: ${price},
+      img: ${img},
+      description: ${description},
+      propertyType: ${propertyType},
     `);
   }
 
@@ -35,42 +49,69 @@ class Form extends Component {
   // Return a controlled form i.e. values of the
   // input field not stored in DOM values are exist
   // in react component itself as state
+
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="address">Address</label>
           <input
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
+            name="address"
+            placeholder="address"
+            value={this.state.address}
             onChange={this.handleChange}
           />
         </div>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="price">Price</label>
           <input
-            name="name"
-            placeholder="Name"
-            value={this.state.name}
+            name="price"
+            placeholder="price"
+            value={this.state.price}
             onChange={this.handleChange}
           />
         </div>
         <div>
-          <label htmlFor="phoneNo">Phone Number</label>
+          <label htmlFor="img">Image</label>
           <input
-            name="phoneNo"
-            placeholder="Phone No"
-            value={this.state.phoneNo}
+            name="img"
+            placeholder="Img Url"
+            value={this.state.img}
             onChange={this.handleChange}
           />
         </div>
         <div>
-          <button>Create Account</button>
+          <label htmlFor="description">Description</label>
+          <input
+            type="textarea"
+            name="description"
+            placeholder="description"
+            value={this.state.description}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="propertyType">Choose a Property Type:</label>
+          <select
+            value={this.state.propertyType}
+            placeholder="Prpperty Type"
+            id="propertyType"
+            name="propertyType"
+            onChange={this.handleChange}
+          >
+            {options.map((option, idx) => (
+              <option key={idx} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <button>Add Listing</button>
         </div>
       </form>
     );
   }
 }
 
-export default UserForm;
+export default ListingsForm;
