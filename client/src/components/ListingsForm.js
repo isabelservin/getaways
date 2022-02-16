@@ -94,10 +94,9 @@ class ListingsForm extends Component {
           <label htmlFor="propertyType">Choose a Property Type:</label>
           <select
             value={this.state.propertyType}
-            placeholder="Prpperty Type"
-            id="propertyType"
             name="propertyType"
             onChange={this.handleChange}
+            style={{ display: "inline" }}
           >
             {options.map((option, idx) => (
               <option key={idx} value={option.value}>

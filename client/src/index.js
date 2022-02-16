@@ -2,23 +2,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App";
-import UserForm from "./components/UserForm";
-import ListingsForm from "./components/ListingsForm";
-import ListingsPage from "./components/ListingsPage";
-import NavBar from "./components/NavBar";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 ReactDOM.render(
-  <>
-    <NavBar />
-    <Router>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/users" element={<UserForm />} />
-        <Route path="/listings" element={<ListingsForm />} />
-        <Route path="listingsPage" element={<ListingsPage />} />
-      </Routes>
-    </Router>
-  </>,
+  <Auth0Provider
+    domain="dev-ejvpqz-k.us.auth0.com"
+    clientId="9tAS6aIBAR40GqZgLV6FVToE340sCGMr"
+    redirectUri="http://localhost:3000/users"
+  >
+    <App />
+  </Auth0Provider>,
   document.getElementById("root")
 );
