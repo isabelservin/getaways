@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withAuth0 } from "@auth0/auth0-react";
 
 const options = [
   { label: "House", value: "house" },
@@ -22,10 +23,12 @@ class ListingsForm extends Component {
 
   // Form submitting logic, prevent default page refresh
   handleSubmit(event) {
+    const { user } = this.props.auth0;
     const { address, price, img, description, propertyType } = this.state;
     event.preventDefault();
     console.log(`
       ____Your Details____\n
+      email: ${user.email},
       address: ${address},
       price: ${price},
       img: ${img},
@@ -113,4 +116,4 @@ class ListingsForm extends Component {
   }
 }
 
-export default ListingsForm;
+export default withAuth0(ListingsForm);
