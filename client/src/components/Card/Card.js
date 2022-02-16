@@ -4,7 +4,7 @@ export const Card = (props) => (
   <div className="Card">
     <img alt="listing" src={props.listing.email} />
     <h1>{props.listing.name}</h1>
-    <h2>{props.listing.email}</h2>
+    <h2>{props.listing.price}</h2>
 
     {/* {console.log(props.listing)} */}
   </div>
