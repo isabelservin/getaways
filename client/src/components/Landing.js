@@ -11,10 +11,8 @@ const Landing = () => {
       <h3 id="site-name">Grand Getaways</h3>
       <img id="landing-img" src={travel} alt="suitcases" />
       <LoginButton />
-      <LogoutButton />
-      <Properties/>
+      <Properties />
       <Listings />
-      
     </div>
   );
 };
