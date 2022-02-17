@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ListingTile from "./ListingTile";
 
 const Listings = () => {
   //create state for retrieved listings
@@ -21,12 +22,31 @@ const Listings = () => {
     }
   };
 
+
   useEffect(() => {
     //invoke method to fetch data from database
-    getListings();
+    getListings()
   }, []);
 
-  return <h1>Listings Component</h1>;
+  const mapToListings = allListings.map(myListing =>{
+    return(
+      <ListingTile 
+        key = {myListing._id}
+        address = {myListing.address}
+        price = {myListing.price}
+        img = {myListing.img}
+        description = {myListing.description}
+        propertyType = {myListing.propertyType}        
+       />
+    )
+  });
+
+  return (
+    <div>
+      <h1>Listings Component</h1>
+      {mapToListings}
+    </div>
+    )
 };
 
 export default Listings;
