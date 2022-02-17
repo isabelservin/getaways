@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ListingTile from "./ListingTile";
 import { useAuth0 } from "@auth0/auth0-react";
 
-const Listings = () => {
+const UserListings = () => {
   //create state for retrieved listings
   const [allListings, setAllListings] = useState([]);
   const [email, setEmail] = useState("");
@@ -57,4 +57,4 @@ const Listings = () => {
   );
 };
 
-export default Listings;
+export default UserListings;
