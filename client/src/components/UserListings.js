@@ -1,46 +1,65 @@
 import React, { useEffect, useState } from "react";
+import ListingTile from "./ListingTile";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 
 const UserListings = () => {
   //create state for retrieved listings
   const [allListings, setAllListings] = useState([]);
-  const { user } = useAuth0();
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
-  const getListings = async () => {
-    try {
-      const { data: response } = await axios.get(
-        `http://localhost:8080/api/v1/listings/userListings?email=${user.email}`
-      );
-      setAllListings(response);
-    } catch (err) {
-      console.log(err);
-    }
+  const getAccount = async () => {
+    const rep = await axios
+      .post(`http://localhost:8080/api/v1/users/findUser`, {
+        email: user.email,
+      })
+      .then((res) => {
+        // console.log(res.data);
+        return res.data;
+      });
+    console.log(rep);
   };
 
-  //   const getListings = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         `http://localhost:8080/api/v1/listings/userListings`,
-  //         { mode: "cors" }
-  //       );
-  //       console.log(response.ok);
-  //       if (response.ok) {
-  //         const responseBody = await response.json();
-  //         console.log(responseBody);
-  //         setAllListings(responseBody);
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+  const getListings = async () => {
+    const email = await getAccount();
+    const body = { ownerEmail: window.localStorage.getItem("email") };
+    axios
+      .post(`http://localhost:8080/api/v1/listings/userListings`, body)
+      .then((res) => {
+        setAllListings(res.data);
+      });
+  };
 
   useEffect(() => {
     //invoke method to fetch data from database
     getListings();
   }, []);
 
-  return <h1>Your current Listings: </h1>;
+  const mapToListings = allListings.map((myListing) => {
+    return (
+      <ListingTile
+        key={myListing._id}
+        address={myListing.address}
+        price={myListing.price}
+        img={myListing.img}
+        description={myListing.description}
+        propertyType={myListing.propertyType}
+      />
+    );
+  });
+
+  if (isLoading) {
+    return <h1>Loading.....</h1>;
+  }
+
+  return (
+    isAuthenticated && (
+      <div>
+        <h1>Your Current Listings: </h1>
+        {mapToListings}
+      </div>
+    )
+  );
 };
 
 export default UserListings;
