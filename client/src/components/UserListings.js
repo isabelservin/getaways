@@ -1,39 +1,40 @@
 import React, { useEffect, useState } from "react";
 import ListingTile from "./ListingTile";
 import { useAuth0 } from "@auth0/auth0-react";
-import axios from "axios";
 
-const UserListings = () => {
+const Listings = () => {
   //create state for retrieved listings
   const [allListings, setAllListings] = useState([]);
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  const getAccount = async () => {
-    const rep = await axios
-      .post(`http://localhost:8080/api/v1/users/findUser`, {
-        email: user.email,
-      })
-      .then((res) => {
-        // console.log(res.data);
-        return res.data;
-      });
-    console.log(rep);
-  };
-
-  const getListings = async () => {
-    const email = await getAccount();
-    const body = { ownerEmail: window.localStorage.getItem("email") };
-    axios
-      .post(`http://localhost:8080/api/v1/listings/userListings`, body)
-      .then((res) => {
-        setAllListings(res.data);
-      });
-  };
+  const [email, setEmail] = useState("");
+  const { user, isAuthenticated } = useAuth0();
 
   useEffect(() => {
     //invoke method to fetch data from database
+    const getEmail = () => {
+      isAuthenticated ? setEmail(user.email) : setEmail("pnnroman92@gmail.com");
+    };
+    const getListings = async () => {
+      try {
+        const response = await fetch(
+          "https://getaways-backend2022.herokuapp.com/api/v1/listings",
+          { mode: "cors" }
+        );
+        console.log(response.ok);
+        if (response.ok) {
+          const responseBody = await response.json();
+          console.log(responseBody);
+          const res = responseBody.filter(
+            (listing) => listing.ownerEmail === email
+          );
+          setAllListings(res);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getEmail();
     getListings();
-  }, []);
+  }, [email, isAuthenticated, user]);
 
   const mapToListings = allListings.map((myListing) => {
     return (
@@ -48,18 +49,12 @@ const UserListings = () => {
     );
   });
 
-  if (isLoading) {
-    return <h1>Loading.....</h1>;
-  }
-
   return (
-    isAuthenticated && (
-      <div>
-        <h1>Your Current Listings: </h1>
-        {mapToListings}
-      </div>
-    )
+    <div>
+      <h1>Your Listings:</h1>
+      {mapToListings}
+    </div>
   );
 };
 
-export default UserListings;
+export default Listings;
