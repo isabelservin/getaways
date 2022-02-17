@@ -15,7 +15,7 @@ class UserForm extends Component {
     const { name, phoneNo } = this.state;
     const { user } = this.props.auth0;
     event.preventDefault();
-    this.setState({ phoneNo: phoneNo.replace("-", "") });
+    const phoneNumber = phoneNo.replaceAll("-", "");
     console.log(`
       ____Your Details____\n
       Name : ${name}
@@ -23,7 +23,7 @@ class UserForm extends Component {
       Email: ${user.email}
     `);
 
-    const userObj = { name, phoneNumber: phoneNo, email: user.email };
+    const userObj = { name, phoneNumber, email: user.email };
     axios
       .post(
         `https://getaways-backend2022.herokuapp.com/api/v1/users/new`,
@@ -45,7 +45,7 @@ class UserForm extends Component {
       [event.target.name]: event.target.value,
     });
   }
-
+  // window.localStorage.setItem('email',)
   // Return a controlled form i.e. values of the
   // input field not stored in DOM values are exist
   // in react component itself as state
