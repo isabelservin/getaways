@@ -21,7 +21,7 @@ const NavBar = () => {
             <a href="/userListings">Your Listings</a>
           </li>
           <li>
-            <a href="#.html">Booking</a>
+            <a href="/bookings">Bookings</a>
           </li>
           <li>{isAuthenticated ? <LogoutButton /> : ""}</li>
         </ul>
