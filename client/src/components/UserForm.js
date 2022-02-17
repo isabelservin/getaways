@@ -45,7 +45,7 @@ class UserForm extends Component {
       [event.target.name]: event.target.value,
     });
   }
-
+  // window.localStorage.setItem('email',)
   // Return a controlled form i.e. values of the
   // input field not stored in DOM values are exist
   // in react component itself as state
