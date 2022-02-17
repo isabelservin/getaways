@@ -3,6 +3,7 @@ import travel from "../images/travel.jpg";
 import Listings from "./Listings";
 import LoginButton from "./Authentication/LoginButton";
 import LogoutButton from "./Authentication/LogoutButton";
+import Properties from "./Properties";
 
 const Landing = () => {
   return (
@@ -11,7 +12,9 @@ const Landing = () => {
       <img id="landing-img" src={travel} alt="suitcases" />
       <LoginButton />
       <LogoutButton />
+      <Properties/>
       <Listings />
+      
     </div>
   );
 };
