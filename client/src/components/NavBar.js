@@ -15,7 +15,7 @@ const NavBar = () => {
             <a href="#.html">Home</a>
           </li>
           <li>
-            <a href="#.html">Add Listing</a>
+            <a href="/listingform">Add Listing</a>
           </li>
           <li>
             <a href="#.html">Booking</a>
