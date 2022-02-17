@@ -18,6 +18,9 @@ const NavBar = () => {
             <a href="/listingform">Add Listing</a>
           </li>
           <li>
+            <a href="/userListings">Your Listings</a>
+          </li>
+          <li>
             <a href="#.html">Booking</a>
           </li>
           <li>{isAuthenticated ? <LogoutButton /> : ""}</li>
