@@ -1,5 +1,6 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import LogoutButton from "./Authentication/LogoutButton";
 
 const NavBar = () => {
   const { isAuthenticated } = useAuth0();
@@ -11,15 +12,15 @@ const NavBar = () => {
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
-            <a href="#">Home</a>
+            <a href="#.html">Home</a>
           </li>
           <li>
-            <a href="#">Add Listing</a>
+            <a href="#.html">Add Listing</a>
           </li>
           <li>
             <a href="#.html">Booking</a>
           </li>
-          <li>{isAuthenticated ? <a href="#.html">Logout</a> : <a></a>}</li>
+          <li>{isAuthenticated ? <LogoutButton /> : ""}</li>
         </ul>
       </div>
     </nav>
