@@ -7,11 +7,11 @@ const ResponsiveNavBar = () => {
   return (
     <nav>
       <input id="nav-toggle" type="checkbox"></input>
-      <div class="logo">
-        <a href="/home">
+      <div className="logo">
+        <a href="/">
           G<strong>G</strong></a>
       </div>
-      <ul class="links">
+      <ul className="links">
         <li>
           <a href="/home">Home</a>
         </li>
@@ -31,15 +31,13 @@ const ResponsiveNavBar = () => {
 
         </li>
 
-
-
-
         <li>{isAuthenticated ? <LogoutButton /> : ""}</li>
+
       </ul>
-      <label for="nav-toggle" class="icon-burger">
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
+      <label htmlFor="nav-toggle" className="icon-burger">
+        <div className="line"></div>
+        <div className="line"></div>
+        <div className="line"></div>
       </label>
     </nav>
   );
