@@ -9,8 +9,6 @@ ReactDOM.render(
     domain="dev-ejvpqz-k.us.auth0.com"
     clientId="9tAS6aIBAR40GqZgLV6FVToE340sCGMr"
     redirectUri="http://localhost:3000/users"
-    audience="https://dev-ejvpqz-k.us.auth0.com/api/v2/"
-    scope="read:current_user update:current_user_metadata"
   >
     <App />
   </Auth0Provider>,
