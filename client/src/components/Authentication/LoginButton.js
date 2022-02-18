@@ -5,13 +5,13 @@ const LoginButton = () => {
   const { loginWithRedirect, user } = useAuth0();
 
   return (
-    <button
+    <a
       onClick={() => {
         loginWithRedirect();
       }}
     >
       Log In
-    </button>
+    </a>
   );
 };
 
