@@ -7,7 +7,11 @@ import UserListings from "./UserListings";
 // import NavBar from "./NavBar";
 import TypeList from "./TypeList";
 import Bookings from "./Booking";
+<<<<<<< HEAD
+import EditPage from "./EditPage";
+=======
 import ResponsiveNavBar from "./ResponsiveNavBar";
+>>>>>>> d7626a6f423d858037ec9333c20581fcb131f5e8
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SplashPage from "./SplashPage";
 
@@ -24,6 +28,7 @@ const App = () => {
           <Route path="/listingform" element={<ListingsForm />} />
           <Route path="/bookings" element={<Bookings />} />
           <Route path="/:propertyType/listings" element={<TypeList />} />
+          <Route path="/editsPage/:id" element={<EditPage />} />
         </Routes>
       </Router>
     </>
