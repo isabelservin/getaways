@@ -334,6 +334,7 @@ nav .icon-burger .line {
   padding: 40px 30px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   perspective: 2700px;
+  margin-bottom: 20vh;
   
 }
 .container .cover{
@@ -524,3 +525,5 @@ nav .icon-burger .line {
     display: none;
   }
 }
+
+/* **********LANDING ********
