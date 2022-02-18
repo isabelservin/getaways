@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import ListingTile from "./ListingTile";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useForm } from "react-hook-form";
 
 const Bookings = () => {
   //create state for retrieved listings
   const [allListings, setAllListings] = useState([]);
   const [email, setEmail] = useState("");
   const { user, isAuthenticated } = useAuth0();
-
+  const { register, handleSubmit } = useForm();
+  const handleRegistration = (data) => console.log(data);
   useEffect(() => {
     //invoke method to fetch data from database
     const getEmail = () => {
@@ -52,6 +54,26 @@ const Bookings = () => {
   return (
     <div>
       <h1>Available Properties:</h1>
+      <form onSubmit={handleSubmit(handleRegistration)}>
+        <div>
+          <label htmlFor="title">Title</label>
+          <input name="title" type="text" {...register("title")} />
+        </div>
+        <div>
+          <label htmlFor="description">Description</label>
+          <textarea name="description" {...register("description")} />
+        </div>
+        <div>
+          <label htmlFor="startDate">Start Date</label>
+          <input type="date" name="start date" {...register("start date")} />
+        </div>
+        <div>
+          <label htmlFor="endDate">End Date</label>
+          <input type="date" name="end date" {...register("end date")} />
+        </div>
+        <button>Submit</button>
+      </form>
+
       {mapToListings}
     </div>
   );
