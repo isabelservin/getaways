@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import house from "../images/house.jpg"
 
 const options = [
   { label: "House", value: "house" },
@@ -72,65 +73,168 @@ class ListingsForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="address">Address</label>
-          <input
-            name="address"
-            placeholder="address"
-            value={this.state.address}
-            onChange={this.handleChange}
-          />
+      // <form onSubmit={this.handleSubmit}>
+      //   <div>
+      //     <label htmlFor="address">Address</label>
+      //     <input
+      //       name="address"
+      //       placeholder="address"
+      //       value={this.state.address}
+      //       onChange={this.handleChange}
+      //     />
+      //   </div>
+      //   <div>
+      //     <label htmlFor="price">Price</label>
+      //     <input
+      //       name="price"
+      //       placeholder="price"
+      //       value={this.state.price}
+      //       onChange={this.handleChange}
+      //     />
+      //   </div>
+      //   <div>
+      //     <label htmlFor="img">Image</label>
+      //     <input
+      //       name="img"
+      //       placeholder="Img Url"
+      //       value={this.state.img}
+      //       onChange={this.handleChange}
+      //     />
+      //   </div>
+      //   <div>
+      //     <label htmlFor="description">Description</label>
+      //     <input
+      //       type="textarea"
+      //       rows="10"
+      //       cols="10"
+      //       name="description"
+      //       placeholder="description"
+      //       value={this.state.description}
+      //       onChange={this.handleChange}
+      //     />
+      //   </div>
+      //   <div>
+      //     <label htmlFor="propertyType">Choose a Property Type:</label>
+      //     <select
+      //       value={this.state.propertyType}
+      //       name="propertyType"
+      //       onChange={this.handleChange}
+      //       style={{ display: "inline" }}
+      //     >
+      //       {options.map((option, idx) => (
+      //         <option key={idx} value={option.value}>
+      //           {option.label}
+      //         </option>
+      //       ))}
+      //     </select>
+      //   </div>
+      //   <div>
+      //     <button>Add Listing</button>
+      //   </div>
+      // </form>
+
+
+      // STYLES
+      < section >
+        <div className="container" id="host">
+          <input type="checkbox" id="flip" />
+
+
+          <div className="cover">
+            <div className="front">
+              <div className="text">
+                <img src={house} />
+              </div>
+            </div>
+          </div>
+
+          <div className="forms">
+            <div className="form-content">
+              <div className="login-form">
+                <div className="title">Host A Property</div>
+                <form onSubmit={this.handleSubmit}>
+                  <div className="input-boxes">
+                    <div className="input-box">
+                      <i className="fas fa-envelope"></i>
+
+                      <label htmlFor="address"></label>
+                      <input
+                        name="address"
+                        placeholder="Address"
+                        value={this.state.address}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+
+                    <div className="input-box">
+                      <i className="fas fa-envelope"></i>
+
+                      <label htmlFor="price"></label>
+                      <input
+                        name="price"
+                        placeholder="Price Per Night"
+                        value={this.state.price}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+
+                    <div className="input-box">
+                      <i className="fas fa-envelope"></i>
+
+
+                      <label htmlFor="img"></label>
+                      <input
+                        name="img"
+                        placeholder="Image Url"
+                        value={this.state.img}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+
+                    <div className="input-box">
+                      <i className="fas fa-envelope"></i>
+
+                      <input
+                        type="textarea"
+                        rows="10"
+                        cols="10"
+                        name="description"
+                        placeholder="Description"
+                        value={this.state.description}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+
+                    <div className="input-box">
+                      <i className="fas fa-envelope"></i>
+
+                      <label htmlFor="propertyType">Property Type:</label>
+                      <select
+                        value={this.state.propertyType}
+                        name="propertyType"
+                        onChange={this.handleChange}
+                        style={{ display: "inline" }}
+                      >
+                        {options.map((option, idx) => (
+                          <option key={idx} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div className="button input-box">
+                    <input type="submit" value="Submit" />
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
         </div>
-        <div>
-          <label htmlFor="price">Price</label>
-          <input
-            name="price"
-            placeholder="price"
-            value={this.state.price}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="img">Image</label>
-          <input
-            name="img"
-            placeholder="Img Url"
-            value={this.state.img}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <input
-            type="textarea"
-            rows="10"
-            cols="10"
-            name="description"
-            placeholder="description"
-            value={this.state.description}
-            onChange={this.handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="propertyType">Choose a Property Type:</label>
-          <select
-            value={this.state.propertyType}
-            name="propertyType"
-            onChange={this.handleChange}
-            style={{ display: "inline" }}
-          >
-            {options.map((option, idx) => (
-              <option key={idx} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <button>Add Listing</button>
-        </div>
-      </form>
+      </section >
     );
   }
 }

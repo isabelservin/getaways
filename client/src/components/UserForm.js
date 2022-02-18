@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
+import hut from "../images/hut.jpg"
 
 const UserForm = () => {
   const [name, setName] = useState("");
@@ -21,8 +22,9 @@ const UserForm = () => {
           { email }
         )
         .then((res) => {
-          console.log(res);
-          if (res) {
+          console.log("response on log in " + res.data.name);
+          //needs a conditional for when user has no name or number and redirects to userform else redirects to profile
+          if (res.status) {
             navigate("/profile");
           }
         });
@@ -55,36 +57,90 @@ const UserForm = () => {
       });
   };
 
+  // return (
+  //   <>
+  //     <h1 style={{ textAlign: "center" }}>
+  //       Finish Signing up to complete your Account
+  //     </h1>
+  //     <form onSubmit={handleSubmit}>
+  //       <div>
+  //         <label htmlFor="name">Name</label>
+  //         <input
+  //           name="name"
+  //           placeholder="Name"
+  //           value={name}
+  //           onChange={(e) => setName(e.target.value)}
+  //         />
+  //       </div>
+  //       <div>
+  //         <label htmlFor="phoneNo">Phone Number</label>
+  //         <input
+  //           name="phoneNo"
+  //           placeholder="Phone No"
+  //           value={phoneNo}
+  //           onChange={(e) => setPhoneNo(e.target.value)}
+  //         />
+  //       </div>
+  //       <div>
+  //         <button>Create Account</button>
+  //       </div>
+  //     </form>
+  //   </>
+  // );
+
   return (
-    <>
-      <h1 style={{ textAlign: "center" }}>
-        Finish Signing up to complete your Account
-      </h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name</label>
-          <input
-            name="name"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+    <div className="container">
+      <input type="checkbox" id="flip" />
+
+      <div className="cover">
+        <div className="front">
+          <div className="text">
+            <img src={hut} />
+          </div>
         </div>
-        <div>
-          <label htmlFor="phoneNo">Phone Number</label>
-          <input
-            name="phoneNo"
-            placeholder="Phone No"
-            value={phoneNo}
-            onChange={(e) => setPhoneNo(e.target.value)}
-          />
+      </div>
+
+      <div className="forms">
+        <div className="form-content">
+          <div className="login-form">
+            <div className="title">Complete Your Profile</div>
+            <form onSubmit={handleSubmit}>
+              <div className="input-boxes">
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
+
+                  <label htmlFor="name"></label>
+                  <input
+                    name="name"
+                    placeholder="Name" required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)} />
+                </div>
+
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
+
+                  <label htmlFor="phoneNo"></label>
+                  <input
+                    name="phoneNo"
+                    placeholder="Phone Number" required
+                    value={phoneNo}
+                    onChange={(e) => setPhoneNo(e.target.value)} />
+                </div>
+
+              </div>
+
+              <div className="button input-box">
+                <input type="submit" value="Submit" />
+              </div>
+            </form>
+          </div>
+
         </div>
-        <div>
-          <button>Create Account</button>
-        </div>
-      </form>
-    </>
-  );
+      </div>
+    </div>
+
+  )
 };
 
 export default UserForm;
