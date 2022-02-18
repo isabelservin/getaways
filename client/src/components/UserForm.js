@@ -22,7 +22,8 @@ const UserForm = () => {
           { email }
         )
         .then((res) => {
-          console.log(res);
+          console.log("response on log in " + res.data.name);
+          //needs a conditional for when user has no name or number and redirects to userform else redirects to profile
           if (res.status) {
             navigate("/profile");
           }
