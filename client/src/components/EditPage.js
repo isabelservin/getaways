@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const options = [
   { label: "House", value: "house" },
@@ -18,6 +18,7 @@ const EditPage = () => {
   const [email, setEmail] = useState("");
   const { user, isAuthenticated } = useAuth0();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getEmail = () => {
@@ -54,6 +55,7 @@ const EditPage = () => {
       )
       .then((res) => {
         console.log(res);
+        navigate("/userListings");
       });
   };
   return (
