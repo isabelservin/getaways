@@ -7,12 +7,14 @@ import Properties from "./Properties";
 
 const Landing = () => {
   return (
-    <div id="main-container">
-      <h3 id="site-name">Grand Getaways</h3>
-      <img id="landing-img" src={travel} alt="suitcases" />
-      <LoginButton />
-      <Properties />
-      <Listings />
+    <div>
+      <div>
+        <section className="showcase">
+          <img src={travel} alt="suitcases" />
+        </section>
+        <Properties />
+      </div>
+
     </div>
   );
 };

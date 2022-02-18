@@ -16,13 +16,13 @@ const ResponsiveNavBar = () => {
           <a href="/home">Home</a>
         </li>
         <li>
-          <a href="/bookings=">Booking</a>
+          <a href="/bookings">Booking</a>
         </li>
         <li>
           <a href="/listingform">Host</a>
         </li>
         <li>
-          {isAuthenticated ? <a href="/userListing">My Listings</a> : ""}
+          {isAuthenticated ? <a href="/userListings">My Listings</a> : ""}
 
         </li>
 
