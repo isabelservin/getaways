@@ -6,7 +6,7 @@ const DeleteButton = (props) => {
   const nav = useNavigate();
   console.log(props);
   return (
-    <button
+    <button className="waves-effect waves-light btn orange lighten-3"
       onClick={async (req, res) => {
         console.log("function hit");
         console.log(props.id);

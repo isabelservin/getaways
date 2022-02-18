@@ -16,7 +16,6 @@ const ResponsiveNavBar = () => {
         <li>{isAuthenticated ? <a href="/home">Home</a> : ""}</li>
         <li>{isAuthenticated ? <a href="/bookings">Booking</a> : ""}</li>
         <li>{isAuthenticated ? <a href="/listingform">Host</a> : ""}</li>
-        <li>{isAuthenticated ? <a href="/profile">Profile</a> : ""}</li>
         <li>
           {isAuthenticated ? <a href="/userListings">My Listings</a> : ""}
         </li>

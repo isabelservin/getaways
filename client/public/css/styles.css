@@ -583,3 +583,26 @@ nav .icon-burger .line {
   font-weight: 300;
   font-variant: small-caps;
 }
+
+.user-listing-container{
+  position: absolute;
+  top: 15vh;
+  left: 10vw;
+  right:10vw
+}
+
+.btn-container{
+  margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 8px;
+    /* margin-bottom: 10px; */
+    padding-bottom: 20px;
+    justify-content: space-around;
+
+}
+
+.delete-btn{
+margin-right: 5px;
+
+}

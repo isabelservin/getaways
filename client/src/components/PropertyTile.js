@@ -16,7 +16,7 @@ const PropertyTile = (props) => {
             <img src={props.img} />
 
             {isShown && (
-              <span className="card-title">{props.propertyType}s</span>
+              <span className="card-title">{props.propertyType}</span>
             )}
 
           </div>

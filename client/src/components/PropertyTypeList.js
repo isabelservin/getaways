@@ -36,7 +36,7 @@ const PropertyTypeList = (props) => {
     return (
         <div className="property-container">
             <div class="row">
-                <div class="col s12 ">{mapPropertyType}</div>
+                <div >{mapPropertyType}</div>
             </div>
         </div>
     )
