@@ -10,6 +10,7 @@ const Bookings = () => {
   const { user, isAuthenticated } = useAuth0();
   const { register, handleSubmit } = useForm();
   const handleRegistration = (data) => console.log(data);
+
   useEffect(() => {
     //invoke method to fetch data from database
     const getEmail = () => {
