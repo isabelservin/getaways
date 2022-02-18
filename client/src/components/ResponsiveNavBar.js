@@ -20,10 +20,6 @@ const ResponsiveNavBar = () => {
         <li>
           {isAuthenticated ? <a href="/userListings">My Listings</a> : ""}
         </li>
-        <li>{isAuthenticated ? <a href="/listingform">Add Listing</a> : ""}</li>
-        <li>
-          {isAuthenticated ? <a href="/userListings">Your Listings</a> : ""}
-        </li>
         <li>{isAuthenticated ? <LogoutButton /> : ""}</li>
       </ul>
       <label htmlFor="nav-toggle" className="icon-burger">
