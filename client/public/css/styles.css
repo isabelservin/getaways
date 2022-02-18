@@ -1,0 +1,31 @@
+body{
+    margin: 0 auto;
+}
+
+#landing-img {
+    width: 100vw;
+    height: 116vh;
+    object-fit: cover;
+}
+
+#site-name{
+font-family: 'League Script', cursive;
+font-family: 'Libre Baskerville', serif;
+font-family: 'Orbitron', sans-serif;
+font-family: 'Sacramento', cursive;
+font-weight: 900;
+color: #159071ba;
+font-size: 120px;
+font-style: oblique;
+position: absolute;
+left: 25vw;
+top: 35vh;
+text-shadow: 2px 2px white;
+
+}
+
+#title-color{
+    color: #159071ba;
+    font-weight: 450;
+    text-shadow: 0px 1px rgba(255, 255, 255, 0.781);
+}
