@@ -75,22 +75,10 @@ const Bookings = () => {
   });
 
   return (
-    <div>
-      <h1>Available Properties:</h1>
-      {/* <form onSubmit={handleSubmit(handleRegistration)}>
-        <div>
-          <label htmlFor="startDate">Start Date</label>
-          <input type="date" name="start date" {...register("start date")} />
-        </div>
-        <div>
-          <label htmlFor="endDate">End Date</label>
-          <input type="date" name="end date" {...register("end date")} />
-        </div>
-        <button>Submit</button>
-      </form> */}
+    <div className="row user-listing-container">
 
       {mapToListings}
-      {/* {recordIds} */}
+
     </div>
   );
 };

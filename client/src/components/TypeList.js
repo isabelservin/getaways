@@ -44,11 +44,9 @@ const TypeList = (props) => {
 
     return (
         <>
-            <h4>Types: ....</h4>
-            <div class="row">
-                <div class="col s12 m4">{mappedTypes}</div>
+            <div className="row user-listing-container">
+                {mappedTypes}
             </div>
-
         </>
     )
 }

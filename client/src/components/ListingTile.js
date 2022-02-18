@@ -1,24 +1,36 @@
 import React from "react";
+import DeleteButton from "./DeleteButton";
+import EditButton from "./EditButton";
+
 const ListingTile = (props) => {
   return (
-    <div className="row">
-      <div className="col s12 m6">
-        <div className="card">
-          <div className="card-image">
-            <img src={props.img} />
-            <span className="card-title">
-              {props.propertyType} for ${props.price}/day
-            </span>
-            <a className="btn-floating halfway-fab waves-effect waves-light orange darken-1 ">
-              <i className="material-icons">+</i>
-            </a>
-          </div>
-          <div className="card-content">
-            <p>{props.description}</p>
-          </div>
+
+    <div className="col s4">
+      <div className="card lg">
+        <div className="card-image waves-effect waves-block waves-light">
+          <img id="myimg" className="activator" src={props.img} />
+        </div>
+
+        <div className="card-content">
+          <span className="card-title activator grey-text text-darken-4"><i id='expand-btn' className="material-icons right">+</i></span>
+          <p>{props.address}</p>
+        </div>
+
+        <div className="card-reveal">
+          <span className="card-title grey-text text-darken-4"><i id='close-btn' className="material-icons right">x</i></span>
+          <p>{props.propertyType}</p>
+          <p>${props.price}/night</p>
+          <p>{props.description}</p>
+        </div>
+
+        <div className="btn-container">
+          <DeleteButton id={props.id} className="delete-btn" />
+          <EditButton id={props.id} className="edit-btn" />
         </div>
       </div>
     </div>
+
+
   );
 };
 export default ListingTile;

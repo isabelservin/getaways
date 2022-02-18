@@ -12,7 +12,7 @@ const options = [
 
 const ListingsForm = () => {
   const [address, setAddress] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [img, setImg] = useState("");
   const [description, setDescription] = useState("");
   const [propertyType, setPropertyType] = useState("");
@@ -61,76 +61,7 @@ const ListingsForm = () => {
       });
   };
 
-  // Method causes to store all the values of the
-  // input field in react state single method handle
-  // input changes of all the input field using ES6
-  // javascript feature computed property names
-
-  // Return a controlled form i.e. values of the
-  // input field not stored in DOM values are exist
-  // in react component itself as state
-
   return (
-    // <form onSubmit={this.handleSubmit}>
-    //   <div>
-    //     <label htmlFor="address">Address</label>
-    //     <input
-    //       name="address"
-    //       placeholder="address"
-    //       value={this.state.address}
-    //       onChange={this.handleChange}
-    //     />
-    //   </div>
-    //   <div>
-    //     <label htmlFor="price">Price</label>
-    //     <input
-    //       name="price"
-    //       placeholder="price"
-    //       value={this.state.price}
-    //       onChange={this.handleChange}
-    //     />
-    //   </div>
-    //   <div>
-    //     <label htmlFor="img">Image</label>
-    //     <input
-    //       name="img"
-    //       placeholder="Img Url"
-    //       value={this.state.img}
-    //       onChange={this.handleChange}
-    //     />
-    //   </div>
-    //   <div>
-    //     <label htmlFor="description">Description</label>
-    //     <input
-    //       type="textarea"
-    //       rows="10"
-    //       cols="10"
-    //       name="description"
-    //       placeholder="description"
-    //       value={this.state.description}
-    //       onChange={this.handleChange}
-    //     />
-    //   </div>
-    //   <div>
-    //     <label htmlFor="propertyType">Choose a Property Type:</label>
-    //     <select
-    //       value={this.state.propertyType}
-    //       name="propertyType"
-    //       onChange={this.handleChange}
-    //       style={{ display: "inline" }}
-    //     >
-    //       {options.map((option, idx) => (
-    //         <option key={idx} value={option.value}>
-    //           {option.label}
-    //         </option>
-    //       ))}
-    //     </select>
-    //   </div>
-    //   <div>
-    //     <button>Add Listing</button>
-    //   </div>
-    // </form>
-
     // STYLES
     <section>
       <div className="container" id="host">

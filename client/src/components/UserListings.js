@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ListingTile from "./ListingTile";
 import { useAuth0 } from "@auth0/auth0-react";
-import DeleteButton from "./DeleteButton";
-import EditButton from "./EditButton";
+
 const UserListings = () => {
   //create state for retrieved listings
   const [allListings, setAllListings] = useState([]);
@@ -43,21 +42,20 @@ const UserListings = () => {
       <>
         <ListingTile
           key={myListing._id}
+          id={myListing._id}
           address={myListing.address}
           price={myListing.price}
           img={myListing.img}
           description={myListing.description}
           propertyType={myListing.propertyType}
         />
-        <DeleteButton key={myListing._id} id={myListing._id} />
-        <EditButton key={myListing._id} id={myListing._id} />
+
       </>
     );
   });
 
   return (
-    <div>
-      <h1>Your Listings:</h1>
+    <div className="row user-listing-container">
       {mapToListings}
     </div>
   );

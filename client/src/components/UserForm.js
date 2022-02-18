@@ -60,37 +60,6 @@ const UserForm = () => {
       });
   };
 
-  // return (
-  //   <>
-  //     <h1 style={{ textAlign: "center" }}>
-  //       Finish Signing up to complete your Account
-  //     </h1>
-  //     <form onSubmit={handleSubmit}>
-  //       <div>
-  //         <label htmlFor="name">Name</label>
-  //         <input
-  //           name="name"
-  //           placeholder="Name"
-  //           value={name}
-  //           onChange={(e) => setName(e.target.value)}
-  //         />
-  //       </div>
-  //       <div>
-  //         <label htmlFor="phoneNo">Phone Number</label>
-  //         <input
-  //           name="phoneNo"
-  //           placeholder="Phone No"
-  //           value={phoneNo}
-  //           onChange={(e) => setPhoneNo(e.target.value)}
-  //         />
-  //       </div>
-  //       <div>
-  //         <button>Create Account</button>
-  //       </div>
-  //     </form>
-  //   </>
-  // );
-
   return (
     <div className="container">
       <input type="checkbox" id="flip" />

@@ -12,7 +12,7 @@ const options = [
 
 const EditPage = () => {
   const [address, setAddress] = useState("");
-  const [price, setPrice] = useState(0);
+  const [price, setPrice] = useState("");
   const [img, setImg] = useState("");
   const [description, setDescription] = useState("");
   const [propertyType, setPropertyType] = useState("");
@@ -60,69 +60,6 @@ const EditPage = () => {
       });
   };
   return (
-    // <>
-    //   <h1>Edit Your Listing</h1>
-    //   <form onSubmit={handleSubmit}>
-    //     <div>
-    // <label htmlFor="address">Address</label>
-    // <input
-    //   name="address"
-    //   placeholder="address"
-    //   value={address}
-    //   onChange={(e) => setAddress(e.target.value)}
-    // />
-    //     </div>
-    //     <div>
-    // <label htmlFor="price">Price</label>
-    // <input
-    //   name="price"
-    //   placeholder="price"
-    //   value={price}
-    //   onChange={(e) => setPrice(e.target.value)}
-    // />
-    //     </div>
-    //     <div>
-    // <label htmlFor="img">Image</label>
-    // <input
-    //   name="img"
-    //   placeholder="Img Url"
-    //   value={img}
-    //   onChange={(e) => setImg(e.target.value)}
-    // />
-    //     </div>
-    //     <div>
-    // <label htmlFor="description">Description</label>
-    // <input
-    //   type="textarea"
-    //   rows="10"
-    //   cols="10"
-    //   name="description"
-    //   placeholder="description"
-    //   value={description}
-    //   onChange={(e) => setDescription(e.target.value)}
-    // />
-    //     </div>
-    //     <div>
-    // <label htmlFor="propertyType">Choose a Property Type:</label>
-    // <select
-    //   value={propertyType}
-    //   name="propertyType"
-    //   onChange={(e) => setPropertyType(e.target.value)}
-    //   style={{ display: "inline" }}
-    // >
-    //   {options.map((option, idx) => (
-    //     <option key={idx} value={option.value}>
-    //       {option.label}
-    //     </option>
-    //   ))}
-    // </select>
-    //     </div>
-    //     <div>
-    //       <button>Edit Listing</button>
-    //     </div>
-    //   </form>
-    // </>
-
 
     <div className="container">
       <input type="checkbox" id="flip" />
