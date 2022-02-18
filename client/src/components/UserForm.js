@@ -14,7 +14,22 @@ const UserForm = () => {
     const getEmail = () => {
       isAuthenticated ? setEmail(user.email) : setEmail("");
     };
+    const userLoggedIn = () => {
+      axios
+        .post(
+          "https://getaways-backend2022.herokuapp.com/api/v1/users/findUser",
+          { email }
+        )
+        .then((res) => {
+          console.log(res);
+          if (res) {
+            navigate("/profile");
+          }
+        });
+    };
+
     getEmail();
+    userLoggedIn();
   }, [user, isAuthenticated, email]);
 
   const handleSubmit = (evt) => {
