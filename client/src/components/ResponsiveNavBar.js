@@ -27,6 +27,9 @@ const ResponsiveNavBar = () => {
           <a href="#contact">Contact</a>
         </li>
         <li>
+          <a href="/listingform">Add Listing</a>
+        </li>
+        <li>
           <a href="/userListings">Your Listings</a>
         </li>
         <li>{isAuthenticated ? <LogoutButton /> : ""}</li>
