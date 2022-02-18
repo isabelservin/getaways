@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
-import hut from "../images/hut.jpg"
+import hut from "../images/hut.jpg";
 
 const UserForm = () => {
   const [name, setName] = useState("");
@@ -23,8 +23,11 @@ const UserForm = () => {
         )
         .then((res) => {
           console.log("response on log in " + res.data.name);
+          console.log(res);
+          let log = res.data ? true : false;
+          console.log(log);
           //needs a conditional for when user has no name or number and redirects to userform else redirects to profile
-          if (res.status) {
+          if (res.data) {
             navigate("/profile");
           }
         });
@@ -112,9 +115,11 @@ const UserForm = () => {
                   <label htmlFor="name"></label>
                   <input
                     name="name"
-                    placeholder="Name" required
+                    placeholder="Name"
+                    required
                     value={name}
-                    onChange={(e) => setName(e.target.value)} />
+                    onChange={(e) => setName(e.target.value)}
+                  />
                 </div>
 
                 <div className="input-box">
@@ -123,11 +128,12 @@ const UserForm = () => {
                   <label htmlFor="phoneNo"></label>
                   <input
                     name="phoneNo"
-                    placeholder="Phone Number" required
+                    placeholder="Phone Number"
+                    required
                     value={phoneNo}
-                    onChange={(e) => setPhoneNo(e.target.value)} />
+                    onChange={(e) => setPhoneNo(e.target.value)}
+                  />
                 </div>
-
               </div>
 
               <div className="button input-box">
@@ -135,12 +141,10 @@ const UserForm = () => {
               </div>
             </form>
           </div>
-
         </div>
       </div>
     </div>
-
-  )
+  );
 };
 
 export default UserForm;
