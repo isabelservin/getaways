@@ -17,7 +17,7 @@ const DeleteButton = (props) => {
           )
           .then((res) => {
             console.log(res);
-            nav("/userListings");
+            window.location.reload(false);
           });
       }}
     >

@@ -41,7 +41,7 @@ const EditPage = () => {
     `);
     const listingObj = {
       id,
-      ownerEmail: user.email,
+      ownerEmail: email,
       address,
       price,
       image: img,
