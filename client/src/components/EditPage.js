@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import cabin from "../images/cabin.jpg"
 
 const options = [
   { label: "House", value: "house" },
@@ -59,68 +60,166 @@ const EditPage = () => {
       });
   };
   return (
-    <>
-      <h1>Edit Your Listing</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="address">Address</label>
-          <input
-            name="address"
-            placeholder="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
+    // <>
+    //   <h1>Edit Your Listing</h1>
+    //   <form onSubmit={handleSubmit}>
+    //     <div>
+    // <label htmlFor="address">Address</label>
+    // <input
+    //   name="address"
+    //   placeholder="address"
+    //   value={address}
+    //   onChange={(e) => setAddress(e.target.value)}
+    // />
+    //     </div>
+    //     <div>
+    // <label htmlFor="price">Price</label>
+    // <input
+    //   name="price"
+    //   placeholder="price"
+    //   value={price}
+    //   onChange={(e) => setPrice(e.target.value)}
+    // />
+    //     </div>
+    //     <div>
+    // <label htmlFor="img">Image</label>
+    // <input
+    //   name="img"
+    //   placeholder="Img Url"
+    //   value={img}
+    //   onChange={(e) => setImg(e.target.value)}
+    // />
+    //     </div>
+    //     <div>
+    // <label htmlFor="description">Description</label>
+    // <input
+    //   type="textarea"
+    //   rows="10"
+    //   cols="10"
+    //   name="description"
+    //   placeholder="description"
+    //   value={description}
+    //   onChange={(e) => setDescription(e.target.value)}
+    // />
+    //     </div>
+    //     <div>
+    // <label htmlFor="propertyType">Choose a Property Type:</label>
+    // <select
+    //   value={propertyType}
+    //   name="propertyType"
+    //   onChange={(e) => setPropertyType(e.target.value)}
+    //   style={{ display: "inline" }}
+    // >
+    //   {options.map((option, idx) => (
+    //     <option key={idx} value={option.value}>
+    //       {option.label}
+    //     </option>
+    //   ))}
+    // </select>
+    //     </div>
+    //     <div>
+    //       <button>Edit Listing</button>
+    //     </div>
+    //   </form>
+    // </>
+
+
+    <div className="container">
+      <input type="checkbox" id="flip" />
+
+      <div className="cover">
+        <div className="front">
+          <div className="text">
+            <img src={cabin} />
+          </div>
         </div>
-        <div>
-          <label htmlFor="price">Price</label>
-          <input
-            name="price"
-            placeholder="price"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-          />
+      </div>
+
+      <div className="forms">
+        <div className="form-content">
+          <div className="login-form">
+            <div className="title">Edit Your Property</div>
+            <form onSubmit={handleSubmit}>
+              <div className="input-boxes">
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
+
+                  <label htmlFor="address"></label>
+                  <input
+                    name="address"
+                    placeholder="Address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
+                </div>
+
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
+
+                  <label htmlFor="price"></label>
+                  <input
+                    name="price"
+                    placeholder="Price Per Night"
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
+                </div>
+
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
+
+                  <label htmlFor="description"></label>
+                  <input
+                    type="textarea"
+                    rows="10"
+                    cols="10"
+                    name="description"
+                    placeholder="Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                  />
+                </div>
+
+
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
+
+                  <label htmlFor="img"></label>
+                  <input
+                    name="img"
+                    placeholder="Image Url"
+                    value={img}
+                    onChange={(e) => setImg(e.target.value)}
+                  />
+                </div>
+
+                <div className="input-box">
+                  <i className="fas fa-envelope"></i>
+
+                  <label htmlFor="propertyType">Property Type:</label>
+                  <select
+                    value={propertyType}
+                    name="propertyType"
+                    onChange={(e) => setPropertyType(e.target.value)}
+                    style={{ display: "inline" }}
+                  >
+                    {options.map((option, idx) => (
+                      <option key={idx} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <div className="button input-box">
+                <input type="submit" value="Submit" />
+              </div>
+            </form>
+          </div>
         </div>
-        <div>
-          <label htmlFor="img">Image</label>
-          <input
-            name="img"
-            placeholder="Img Url"
-            value={img}
-            onChange={(e) => setImg(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="description">Description</label>
-          <input
-            type="textarea"
-            rows="10"
-            cols="10"
-            name="description"
-            placeholder="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <div>
-          <label htmlFor="propertyType">Choose a Property Type:</label>
-          <select
-            value={propertyType}
-            name="propertyType"
-            onChange={(e) => setPropertyType(e.target.value)}
-            style={{ display: "inline" }}
-          >
-            {options.map((option, idx) => (
-              <option key={idx} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <button>Edit Listing</button>
-        </div>
-      </form>
-    </>
+      </div>
+    </div>
   );
 };
 
