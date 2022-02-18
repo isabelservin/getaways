@@ -24,10 +24,8 @@ text-shadow: 2px 2px white;
 
 }
 
-/* #logo-gg{
-font-family: 'League Script', cursive;
-font-family: 'Libre Baskerville', serif;
-font-family: 'Orbitron', sans-serif;
-font-family: 'Sacramento', cursive;
-} */
-
+#title-color{
+    color: #159071ba;
+    font-weight: 450;
+    text-shadow: 0px 1px rgba(255, 255, 255, 0.781);
+}
