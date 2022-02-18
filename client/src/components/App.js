@@ -7,6 +7,7 @@ import UserListings from "./UserListings";
 import NavBar from "./NavBar";
 import TypeList from "./TypeList";
 import Bookings from "./Booking";
+import EditPage from "./EditPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/listingform" element={<ListingsForm />} />
           <Route path="/bookings" element={<Bookings />} />
           <Route path="/:propertyType/listings" element={<TypeList />} />
+          <Route path="/editsPage/:id" element={<EditPage />} />
         </Routes>
       </Router>
     </>
