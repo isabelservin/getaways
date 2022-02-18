@@ -5,6 +5,7 @@ import ListingsForm from "./ListingsForm";
 import Profile from "./Profile";
 import UserListings from "./UserListings";
 import NavBar from "./NavBar";
+import Bookings from "./Booking";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
           <Route path="/users" element={<UserForm />} />
           <Route path="/listingform" element={<ListingsForm />} />
+          <Route path="/bookings" element={<Bookings />} />
         </Routes>
       </Router>
     </>
