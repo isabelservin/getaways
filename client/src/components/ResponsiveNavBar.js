@@ -26,6 +26,13 @@ const ResponsiveNavBar = () => {
 
         </li>
 
+        <li>
+          {isAuthenticated ? <a href="/profile">Profile</a> : ""}
+
+        </li>
+
+
+
 
         <li>{isAuthenticated ? <LogoutButton /> : ""}</li>
       </ul>
